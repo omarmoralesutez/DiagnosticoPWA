@@ -28,7 +28,6 @@
 
 
 const preAdd = () =>{
-    console.log("add");
     $('#addPeople').modal("show")
 }
 
@@ -49,7 +48,6 @@ const add = (event) =>{
         if (result.isConfirmed) {
             fetch("https://reqres.in/api/users", {method: "POST", headers:{'Content-Type': 'application/json'}, body: JSON.stringify(object)})
             .then(res => {
-                console.log(res);
                 if(res.ok){
                     Swal.fire('Guardado!', '', 'success')
                     getPeople()
@@ -66,7 +64,6 @@ const add = (event) =>{
 }
 
 const preUpdate = async(id) =>{
-    console.log(id);
     const response = await fetch(`https://reqres.in/api/users/${id}`)
     const {data} = await response.json()
     const {first_name} = data
@@ -100,7 +97,6 @@ const update = (event) =>{
         if (result.isConfirmed) {
             fetch(`https://reqres.in/api/users/${id}`, {method: "PUT", headers:{'Content-Type': 'application/json'}, body: JSON.stringify(object)})
             .then(res => {
-                console.log(res);
                 if(res.ok){
                     Swal.fire('Modificado!', '', 'success')
                     getPeople()
@@ -147,7 +143,6 @@ const deletePeople = (id) =>{
 const see = async(id) =>{
     const response = await fetch(`https://reqres.in/api/users/${id}`)
     const {data} = await response.json()
-    console.log(data);
     const {first_name, last_name, avatar, email} = data
 
     document.getElementById("nombreInfo").innerText = first_name;
