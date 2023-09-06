@@ -53,12 +53,16 @@ const add = (event) =>{
                     getPeople()
                     $('#addPeople').modal("hide")
                     clearRegister()
+                }else{
+                    Swal.fire('Ocurrio un error!', '', 'error')
                 }
             })
         } else if (result.isDenied) {
           Swal.fire('Cambios no guardados', '', 'info')
         }
-      })
+      }).catch(err =>{
+            Swal.fire('Ocurrio un error!', '', 'error')
+       })
 
 
 }
@@ -102,12 +106,16 @@ const update = (event) =>{
                     getPeople()
                     $('#updatePeople').modal("hide")
                     clearUpdate()
+                }else{
+                    Swal.fire('Ocurrio un error!', '', 'error')
                 }
             })
         } else if (result.isDenied) {
           Swal.fire('Cambios no guardados', '', 'info')
         }
-      })
+      }).catch(err =>{
+        Swal.fire('Ocurrio un error!', '', 'error')
+   })
 
 
 }
@@ -132,12 +140,16 @@ const deletePeople = (id) =>{
                 if(parseInt(res.status) === 204){
                     Swal.fire('Eliminado!', '', 'success')
                     getPeople()
+                }else{
+                    Swal.fire('Ocurrio un error!', '', 'error')
                 }
             })
         } else if (result.isDenied) {
           Swal.fire('Cambios no guardados', '', 'info')
         }
-      })
+      }).catch(err =>{
+            Swal.fire('Ocurrio un error!', '', 'error')
+       })
 } 
 
 const see = async(id) =>{
