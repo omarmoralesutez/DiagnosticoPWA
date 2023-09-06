@@ -6,10 +6,10 @@
            let body = document.getElementById("people");
            body.innerHTML = ""
 
-           data.forEach((item) =>{
+           data.forEach((item, index) =>{
                 body.innerHTML += `
                     <tr>
-                        <td class="align-middle">${item.id}</td>
+                        <td class="align-middle">${(index + 1)}</td>
                         <td class="align-middle">${item.first_name}</td>
                         <td class="align-middle">${item.last_name}</td>
                         <td class="align-middle">${item.email}</td>
